@@ -1,0 +1,21 @@
+version: '3'
+services: 
+  rabbitmq_backend:
+    image: rabbitmq:3.8.11-management
+    mem_limit: 521m
+    ports: 
+      - 5672:5672
+      - 15672:15672
+    volumes: 
+      - $PWD/storage/rabbitmq_backend:/var/lib/rabbitmq
+    environment: 
+      - RABBITMQ_ERLANG_COOKIE=secret_pass
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      timeout: 2s
+      retries: 60
+volumes: 
+  rabbitmq:

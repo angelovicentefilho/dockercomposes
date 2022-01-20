@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  axonserver:
+    image: axoniq/axonserver:latest
+    hostname: axonserver
+    ports:
+      - '8025:8025'
+      - '8124:8124'
+      - '8224:8224'
+    volumes:
+      - $PWD/particular/axon/docker-data/data:/data
+      - $PWD/particular/axon/docker-data/eventdata:/eventdata
+      - $PWD/particular/axon/docker-data/config:/config
