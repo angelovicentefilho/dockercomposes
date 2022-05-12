@@ -4,7 +4,7 @@ services:
     image: axoniq/axonserver:latest
     hostname: axonserver
     ports:
-      - '8025:8025'
+      - '8024:8024'
       - '8124:8124'
       - '8224:8224'
     volumes:
