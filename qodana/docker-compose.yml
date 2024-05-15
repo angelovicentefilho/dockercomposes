@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  qodana:
+    container_name: 'qodana'
+    image: jetbrains/qodana-jvm-community
+    ports:
+      - "8880:8080"
+    environment:
+      PROJECT_DIR: /project
+      PROJECT_OPEN_TYPE: Gradle
+    volumes:
+      - /jtech/projects/code/developers/sansysv3:/project  # Mapeia o diretório do seu projeto para o contêiner
+    command:
+      - --show-report

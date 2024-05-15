@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  kafkaconnect:
+    container_name: jtech-kafka-connect
+    image: debezium/connect:latest
+    ports:
+      - 8083:8083
+    environment:
+      GROUP_ID: 1
+      BOOTSTRAP_SERVERS: jtech_kafka_server:29092
+      CONFIG_STORAGE_TOPIC: ssm_configs
+      OFFSET_STORAGE_TOPIC: ssm_offsets
+      STATUS_STORAGE_TOPIC: ssm_statuses
+    networks:
+      ssm-services:
+networks:
+  ssm-services:
